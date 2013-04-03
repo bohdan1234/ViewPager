@@ -10,10 +10,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 
 public class ViewPagerActivity extends Activity {
 
@@ -36,7 +33,7 @@ public class ViewPagerActivity extends Activity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.awesomepager);
         //How many pages will be kept offscreen in an idle state
         //viewPager.setOffscreenPageLimit(3);
-        viewPager.setAdapter(viewPagerAdapter);      
+        viewPager.setAdapter(viewPagerAdapter);  
     }
     
     private class ViewPagerAdapter extends PagerAdapter{
@@ -71,7 +68,7 @@ public class ViewPagerActivity extends Activity {
          */
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
-            ImageView imageView = new ImageView(mContext);
+            TouchImageView imageView = new TouchImageView(mContext);
             imageView.setImageResource(mImageList.get(position));
             collection.addView(imageView, 0);
             
@@ -90,7 +87,7 @@ public class ViewPagerActivity extends Activity {
          */
         @Override
         public void destroyItem(ViewGroup collection, int position, Object view) {
-            collection.removeView((ImageView) view);
+            collection.removeView((TouchImageView) view);
         }
 
 
